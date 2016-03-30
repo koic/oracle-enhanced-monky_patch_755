@@ -6,7 +6,7 @@ A monkey patch for oracle-enhanced ISSUE [#755](https://github.com/rsim/oracle-e
 
 Add these lines to your application's Gemfile:
 
-```
+```ruby
 gem 'activerecord-oracle_enhanced-adapter-monky_patch_755'
 ```
 
