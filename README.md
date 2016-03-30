@@ -2,7 +2,7 @@
 
 A monkey patch for oracle-enhanced ISSUE [#755](https://github.com/rsim/oracle-enhanced/issues/755).
 
-## INSTALL
+## Installation
 
 Add these lines to your application's Gemfile:
 
@@ -21,6 +21,31 @@ Or install it yourself as:
 ```
 $ gem install activerecord-oracle_enhanced-adapter-monky_patch_755
 ```
+
+## Target
+
+* 'activerecord', '~>4.2.1'
+* 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
+
+## Motivation
+
+This library is bound to solve this problem in Rails 4.2.x with Oracle.
+
+```ruby
+> created_at = Model.first.created_at
+> Model.where(created_at: created_at)
+  => []
+```
+
+Above is not expected. This library will apply a patch as a following behavior.
+
+```ruby
+> created_at = Model.first.created_at
+> Model.where(created_at: created_at)
+  => [#<Model id: ***snip***>]
+```
+
+To explain this a little further: oracle-enhanced ISSUE [#755](https://github.com/rsim/oracle-enhanced/issues/755).
 
 ## Contributing
 
