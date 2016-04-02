@@ -1,4 +1,4 @@
-# activerecord-oracle_enhanced-adapter-monky_patch_755
+# activerecord-oracle_enhanced-adapter-monky_patch_755 [![Gem Version](https://badge.fury.io/rb/activerecord-oracle_enhanced-adapter-monky_patch_755.svg)](http://badge.fury.io/rb/activerecord-oracle_enhanced-adapter-monky_patch_755)
 
 A monkey patch for oracle-enhanced ISSUE [#755](https://github.com/rsim/oracle-enhanced/issues/755).
 
