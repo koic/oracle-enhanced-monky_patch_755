@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activerecord-oracle_enhanced-adapter-monky_patch_755 (0.0.1)
+    activerecord-oracle_enhanced-adapter-monky_patch_755 (0.0.2)
       activerecord (~> 4.2.1, <= 4.2.7)
       activerecord-oracle_enhanced-adapter (~> 1.6.0)
 
