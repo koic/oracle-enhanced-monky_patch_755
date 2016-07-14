@@ -6,7 +6,7 @@
 module ActiveRecord
   module MonkeyPatch
     MINIMUM_SUPPORTED_VERSION = '4.2.1'.freeze
-    MAXIMUM_SUPPORTED_VERSION = '4.2.6'.freeze
+    MAXIMUM_SUPPORTED_VERSION = '4.2.7'.freeze
 
     def adjust_timezone_offset(opts)
       if ActiveRecord::Base.connection_config[:adapter] != 'oracle_enhanced' ||
