@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     activerecord-oracle_enhanced-adapter-monky_patch_755 (0.1.0)
-      activerecord (~> 4.2.1)
-      activerecord-oracle_enhanced-adapter (~> 1.6.0)
+      activerecord (>= 4.2.1)
+      activerecord-oracle_enhanced-adapter (>= 1.6.0)
       ruby-oci8
 
 GEM
@@ -91,8 +91,8 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-oracle_enhanced-adapter-monky_patch_755!
+  railties (>= 4.2.1)
   railties (~> 4.2.1)
-  rspec (>= 3.0.0)
 
 BUNDLED WITH
    1.12.5

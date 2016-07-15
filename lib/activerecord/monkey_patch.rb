@@ -1,4 +1,7 @@
-require 'activerecord/monkey_patch/rails4'
+case Rails::VERSION::MAJOR
+when 4; require 'activerecord/monkey_patch/rails4'
+when 5; require 'activerecord/monkey_patch/rails5'
+end
 
 #
 # This code is a monkey patch for oracle-enhanced ISSUE #755.
