@@ -1,7 +1,7 @@
 module ActiveRecord
   module MonkeyPatch
     MINIMUM_SUPPORTED_VERSION = '4.2.1'.freeze
-    MAXIMUM_SUPPORTED_VERSION = '4.2.7'.freeze
+    MAXIMUM_SUPPORTED_VERSION = '4.2.7.1'.freeze
   end
 
   #
