@@ -1,18 +1,7 @@
 module OracleEnhanced
-  class Hooks
-    def self.init
-      ActiveSupport.on_load(:active_record) do
-        require 'activerecord/monkey_patch'
-        require 'activerecord/monkey_patch/rails4'
-      end
-    end
-  end
+  require 'oracle_enhanced/monkey_patch_755/hooks'
 
   if defined? ::Rails::Railtie
-    class MonkeyPatch755Railtie < ::Rails::Railtie
-      initializer 'activerecord-oracle_enhanced-adapter-monky_patch_755' do
-        OracleEnhanced::Hooks.init
-      end
-    end
+    require 'oracle_enhanced/monkey_patch_755/railtie'
   end
 end

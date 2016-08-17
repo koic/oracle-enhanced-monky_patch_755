@@ -1,6 +1,6 @@
 $:.push File.expand_path('../lib', __FILE__)
 
-require 'activerecord/monkey_patch/version'
+require 'oracle_enhanced/monkey_patch_755/version'
 
 Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.summary = 'A monkey patch for oracle-enhanced ISSUE #755.'
   s.description = 'A monkey patch for oracle-enhanced ISSUE #755.'
 
-  s.version = ActiveRecord::MonkeyPatch::VERSION
+  s.version = OracleEnhanced::MonkeyPatch755::VERSION
 
   s.license = 'MIT'
 
