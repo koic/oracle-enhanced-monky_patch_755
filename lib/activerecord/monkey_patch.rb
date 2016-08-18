@@ -7,8 +7,8 @@ module ActiveRecord
   module MonkeyPatch
     def adjust_timezone_offset(opts)
       if ActiveRecord::Base.connection_config[:adapter] != 'oracle_enhanced' ||
-        ActiveRecord.version < Gem::Version.create(MINIMUM_SUPPORTED_VERSION) ||
-        ActiveRecord.version > Gem::Version.create(MAXIMUM_SUPPORTED_VERSION)
+        ActiveRecord::VERSION::MAJOR != SUPPORTED_MAJOR_VERSION ||
+        ActiveRecord.version < Gem::Version.create(MINIMUM_SUPPORTED_VERSION)
         return opts
       end
 
