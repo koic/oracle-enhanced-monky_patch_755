@@ -4,7 +4,6 @@ module OracleEnhanced
       def self.init
         ActiveSupport.on_load(:active_record) do
           require 'activerecord/monkey_patch'
-          require 'activerecord/monkey_patch/rails4'
         end
       end
     end

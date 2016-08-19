@@ -1,3 +1,5 @@
+require 'activerecord/monkey_patch/rails4'
+
 #
 # This code is a monkey patch for oracle-enhanced ISSUE #755.
 #
