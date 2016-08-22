@@ -86,10 +86,9 @@ module ActiveRecord
           type_metadata = fetch_type_metadata(row['sql_type'])
 
           # *** Its a monkey patch paragraph. ***
-          type_metadata = if /date/i === type_metadata.sql_type
+          if /date/i === type_metadata.sql_type
             if type_metadata.type == :date
               type_metadata.instance_eval('@sql_type = "DATETIME"')
-              type_metadata
             end
           end
 
