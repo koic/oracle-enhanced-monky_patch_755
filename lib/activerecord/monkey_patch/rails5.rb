@@ -4,6 +4,19 @@ module ActiveRecord
     MINIMUM_SUPPORTED_VERSION = '5.0.0'.freeze
   end
 
+  #
+  # Original code is the following URL.
+  #
+  # https://github.com/rails/rails/blob/v5.0.0.1/activerecord/lib/active_record/internal_metadata.rb#L18
+  #
+  class InternalMetadata < ActiveRecord::Base
+     class << self
+       def []=(key, value)
+         find_or_initialize_by(key: key).update_attributes!(value: value.to_s)
+       end
+     end
+  end
+
   module ConnectionAdapters
     #
     # Original code is the following URL.
