@@ -29,5 +29,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activerecord', '~>4.2.1'
   s.add_dependency 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
+  s.add_dependency 'ruby-oci8'
   s.add_development_dependency 'railties', '~>4.2.1'
 end
