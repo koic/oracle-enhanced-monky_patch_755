@@ -13,7 +13,8 @@ module ActiveRecord
     def adjust_timezone_offset(opts)
       if ActiveRecord::Base.connection_config[:adapter] != 'oracle_enhanced' ||
         ActiveRecord::VERSION::MAJOR != SUPPORTED_MAJOR_VERSION ||
-        ActiveRecord.version < Gem::Version.create(MINIMUM_SUPPORTED_VERSION)
+        ActiveRecord.version < Gem::Version.create(MINIMUM_SUPPORTED_VERSION) ||
+        Gem::Version.create(ActiveRecord::ConnectionAdapters::OracleEnhancedAdapter::VERSION ) > Gem::Version.create('1.7.3')
         return opts
       end
 

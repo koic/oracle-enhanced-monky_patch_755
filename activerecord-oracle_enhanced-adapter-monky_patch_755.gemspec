@@ -32,4 +32,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'ruby-oci8'
   s.add_development_dependency 'railties', '>= 4.2.1'
   s.add_development_dependency 'rspec', '>= 3.0.0'
+
+  s.post_install_message = <<-END
+[activerecord-oracle_enhanced-adapter-monky_patch_755]
+oracle-enhanced ISSUE #755 has been fixed at oracle-enhanced 1.7.3.
+The best way is to use oracle-enhanced 1.7.3 or later. Thanks.
+END
 end

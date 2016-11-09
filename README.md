@@ -2,6 +2,8 @@
 
 A monkey patch for oracle-enhanced ISSUE [#755](https://github.com/rsim/oracle-enhanced/issues/755).
 
+**ISSUE #755 has been resolved at activerecord-oracle_enhanced-adapter 1.7.3.**
+
 ## Installation
 
 Add these lines to your application's Gemfile:
@@ -24,7 +26,7 @@ $ gem install activerecord-oracle_enhanced-adapter-monky_patch_755
 
 ## Target
 
-* 'activerecord', '~>4.2.1'
+* 'activerecord', '=> 4.2.1'
 * 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
 
 ## Motivation
