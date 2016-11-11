@@ -26,8 +26,8 @@ $ gem install activerecord-oracle_enhanced-adapter-monky_patch_755
 
 ## Target
 
-* 'activerecord', '=> 4.2.1'
-* 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
+* 'activerecord', '>= 4.2.1'
+* 'activerecord-oracle_enhanced-adapter', '>= 1.6.0'
 
 ## Motivation
 
