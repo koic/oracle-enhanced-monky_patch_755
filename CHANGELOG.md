@@ -1,3 +1,8 @@
+## Unreleased
+
+* Support AR 5.1.0
+* NOTE: This gem have no effect on activerecord-oracle_enhanced-adapter 1.7.3 or later because ISSUE #755 has been resolved at activerecord-oracle_enhanced-adapter 1.7.3
+
 ## 0.2.0 (2016-11-11)
 
 * Support AR 5

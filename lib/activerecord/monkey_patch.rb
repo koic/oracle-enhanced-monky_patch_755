@@ -1,6 +1,10 @@
 case Rails::VERSION::MAJOR
 when 4; require 'activerecord/monkey_patch/rails4'
-when 5; require 'activerecord/monkey_patch/rails5'
+when 5
+  case Rails::VERSION::MINOR
+  when 0; require 'activerecord/monkey_patch/rails5_0'
+  when 1; require 'activerecord/monkey_patch/rails5_1'
+  end
 end
 
 #
