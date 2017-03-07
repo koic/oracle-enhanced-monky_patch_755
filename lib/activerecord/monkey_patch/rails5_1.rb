@@ -100,6 +100,32 @@ module ActiveRecord
         end
       end
     end
+
+    module OracleEnhanced
+      module Quoting
+        #
+        # Original code has been removed.
+        #
+        # https://github.com/rsim/oracle-enhanced/commit/28dd91ccbbbf8e1e313ba816257ad281860f100b
+        #
+        def quote(value)
+          case value
+          when ::Date, ::Time, ::DateTime # *** Its a monky patch condition. ***
+            if value.acts_like?(:time)
+              zone_conversion_method = ActiveRecord::Base.default_timezone == :utc ? :getutc : :getlocal
+
+              if value.respond_to?(zone_conversion_method)
+                value = value.send(zone_conversion_method)
+              end
+            end
+
+            "'#{value.to_s(:db)}'"
+          else
+            super
+          end
+        end
+      end
+    end
   end
 
   #
