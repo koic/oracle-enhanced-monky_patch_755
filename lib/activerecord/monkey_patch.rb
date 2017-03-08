@@ -1,11 +1,11 @@
-if Rails::VERSION::MAJOR == 4 && Rails::VERSION::MINOR == 2
+if ActiveRecord::VERSION::MAJOR == 4 && ActiveRecord::VERSION::MINOR == 2
   require 'activerecord/monkey_patch/rails4_2'
-elsif Rails::VERSION::MAJOR == 5 && Rails::VERSION::MINOR == 0
+elsif ActiveRecord::VERSION::MAJOR == 5 && ActiveRecord::VERSION::MINOR == 0
   require 'activerecord/monkey_patch/rails5_0'
-elsif Rails::VERSION::MAJOR == 5 && Rails::VERSION::MINOR == 1
+elsif ActiveRecord::VERSION::MAJOR == 5 && ActiveRecord::VERSION::MINOR == 1
   require 'activerecord/monkey_patch/rails5_1'
 else
-  raise "Unsupported version of Active Record: #{Rails.version}"
+  raise "Unsupported version of Active Record: #{ActiveRecord.version}"
 end
 
 #
