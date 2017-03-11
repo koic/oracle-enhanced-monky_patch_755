@@ -6,6 +6,29 @@ module ActiveRecord
 
   module ConnectionAdapters
     #
+    # This is a monkey patch to the problem below.
+    # As a result of `rails db:schema:dump`, the `DATE` type column expects to return `t.datetime :created_at`.
+    # But actually `t.date :created_at` is returned.
+    #
+    # Perhaps, converting the `DATE` type created in Rails 4 to `TIMESTAMP(6)` type that is used in Rails 5 makes
+    # this monkey patch unnecessary.
+    #
+    # Original code is the following URL.
+    #
+    # https://github.com/rails/rails/blob/v5.1.0.beta1/activerecord/lib/active_record/connection_adapters/abstract/schema_dumper.rb#L9-L11
+    #
+    module ColumnDumper
+      def column_spec(column)
+        # The following 2 lines are a main monkey patch in this method.
+        spec = Hash[prepare_column_options(column).map { |k, v| [k, "#{k}: #{v}"] }]
+
+        schema_type = (column.type == :date) ? :datetime : schema_type_with_virtual(column)
+
+        [schema_type, prepare_column_options(column)]
+      end
+    end
+
+    #
     # Original code is the following URL.
     #
     #  https://github.com/rsim/oracle-enhanced/blob/v1.8.0.beta1/lib/active_record/connection_adapters/oracle_enhanced_adapter.rb#L735-L801

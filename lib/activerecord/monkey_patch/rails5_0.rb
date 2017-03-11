@@ -107,6 +107,34 @@ module ActiveRecord
 
     module OracleEnhanced
       #
+      # This is a monkey patch to the problem below.
+      # As a result of `rails db:schema:dump`, the `DATE` type column expects to return `t.datetime :created_at`.
+      # But actually `t.date :created_at` is returned.
+      #
+      # Perhaps, converting the `DATE` type created in Rails 4 to `TIMESTAMP(6)` type that is used in Rails 5 makes
+      # this monkey patch unnecessary.
+      #
+      # Original code is the following URL.
+      #
+      # https://github.com/rsim/oracle-enhanced/blob/v1.7.9/lib/active_record/connection_adapters/oracle_enhanced/column_dumper.rb#L5-L14
+      #
+      module ColumnDumper
+        def column_spec(column)
+          spec = Hash[prepare_column_options(column).map { |k, v| [k, "#{k}: #{v}"] }]
+          spec[:name] = column.name.inspect
+          if column.virtual?
+            spec[:type] = "virtual"
+          else
+            spec[:type] = schema_type(column).to_s
+          end
+
+          spec[:type] = "datetime" if spec[:type] == "date" # *** This line includes a monky patch condition. ***
+
+          spec
+        end
+      end
+
+      #
       # Original code is the following URL.
       #
       # https://github.com/rsim/oracle-enhanced/blob/rails5/lib/active_record/connection_adapters/oracle_enhanced/quoting.rb#L87
