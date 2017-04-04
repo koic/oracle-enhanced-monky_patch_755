@@ -134,6 +134,25 @@ module ActiveRecord
             super
           end
         end
+
+        #
+        # Follow up to https://github.com/rsim/oracle-enhanced/pull/1267/commits/f26432f679fb836f4f4d72f6a7e9999da175ac91
+        #
+        def _type_cast(value)
+          case value
+          when Date, Time # *** Its a monky patch condition. ***
+            if value.acts_like?(:time)
+              zone_conversion_method = ActiveRecord::Base.default_timezone == :utc ? :getutc : :getlocal
+              value.respond_to?(zone_conversion_method) ? value.send(zone_conversion_method) : value
+            else
+              value
+            end
+          when ActiveRecord::OracleEnhanced::Type::NationalCharacterString::Data
+            value.to_s
+          else
+            super
+          end
+        end
       end
     end
   end
