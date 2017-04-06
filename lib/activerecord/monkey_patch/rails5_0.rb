@@ -18,12 +18,42 @@ module ActiveRecord
   end
 
   module ConnectionAdapters
-    #
-    # Original code is the following URL.
-    #
-    #   https://github.com/rsim/oracle-enhanced/blob/rails5/lib/active_record/connection_adapters/oracle_enhanced_adapter.rb#L938
-    #
     class OracleEnhancedAdapter
+      #
+      # `supports_datetime_with_precision?` method and `native_database_types` method are overwriting
+      # the mapping between Rails and Oracle type to match Rails 4.2 behavior.
+      #
+      # The following is the SQL type when generating datetime column.
+      #
+      # - Rails 5 ... `TIMESTAMP(6)' SQL type.
+      # - Rails 4 ... `DATE' SQL type. ***This is the behavior of the monkey patch***.
+      #
+      # Original code is the following URL.
+      #
+      # https://github.com/rsim/oracle-enhanced/blob/v1.7.9/lib/active_record/connection_adapters/oracle_enhanced_adapter.rb#L521
+      #
+      def supports_datetime_with_precision?
+        false
+      end
+
+      def native_database_types
+        native_database_types_patch = {
+          datetime: { name: "DATE" },
+          time:     { name: "DATE" }
+        }
+
+        if emulate_booleans_from_strings
+          ActiveRecord::ConnectionAdapters::OracleEnhancedAdapter::NATIVE_DATABASE_TYPES_BOOLEAN_STRINGS.dup.merge(native_database_types_patch)
+        else
+          ActiveRecord::ConnectionAdapters::OracleEnhancedAdapter::NATIVE_DATABASE_TYPES.dup.merge(native_database_types_patch)
+        end
+      end
+
+      #
+      # Original code is the following URL.
+      #
+      #   https://github.com/rsim/oracle-enhanced/blob/rails5/lib/active_record/connection_adapters/oracle_enhanced_adapter.rb#L938
+      #
       def columns_without_cache(table_name, name = nil) #:nodoc:
         table_name = table_name.to_s
         # get ignored_columns by original table name
