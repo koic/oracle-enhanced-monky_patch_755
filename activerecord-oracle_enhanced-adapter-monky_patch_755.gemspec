@@ -36,6 +36,11 @@ Gem::Specification.new do |s|
   s.post_install_message = <<-END
 [activerecord-oracle_enhanced-adapter-monky_patch_755]
 oracle-enhanced ISSUE #755 has been resolved at oracle-enhanced 1.7.3.
-The best way is to use oracle-enhanced 1.7.3 or later. Thanks.
+The best way is to use oracle-enhanced 1.7.3 or later.
+
+Upgrade Rails 4.2 or older version to Rails 5.
+See https://github.com/rsim/oracle-enhanced#upgrade-rails-42-or-older-version-to-rails-5
+
+Thank you.
 END
 end
