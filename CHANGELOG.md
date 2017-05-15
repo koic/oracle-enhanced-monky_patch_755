@@ -1,4 +1,4 @@
-## Unreleased
+## 0.3.0 (2017-05-15)
 
 * Support AR 5.1.0
 * NOTE: This gem have no effect on activerecord-oracle_enhanced-adapter 1.7.3 or later because ISSUE #755 has been resolved at activerecord-oracle_enhanced-adapter 1.7.3. See also, upgrade Rails 4.2 or older version to Rails 5 (https://github.com/rsim/oracle-enhanced#upgrade-rails-42-or-older-version-to-rails-5) .
