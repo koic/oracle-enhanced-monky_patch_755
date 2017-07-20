@@ -2,7 +2,7 @@
 
 A monkey patch for oracle-enhanced ISSUE [#755](https://github.com/rsim/oracle-enhanced/issues/755).
 
-**ISSUE #755 has been resolved at activerecord-oracle_enhanced-adapter 1.7.3.**
+**ISSUE #755 has been resolved on activerecord-oracle_enhanced-adapter 1.7.3 or higher.**
 
 ## Installation
 
