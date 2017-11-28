@@ -184,6 +184,21 @@ module ActiveRecord
           end
         end
       end
+
+      module SchemaStatements
+        # https://github.com/rsim/oracle-enhanced/blob/v1.7.9/lib/active_record/connection_adapters/oracle_enhanced/schema_statements.rb#L290
+        def change_column_null(table_name, column_name, null, default = nil) #:nodoc:
+          column = column_for(table_name, column_name)
+
+          unless null || default.nil?
+            execute("UPDATE #{quote_table_name(table_name)} SET #{quote_column_name(column_name)}=#{quote(default)} WHERE #{quote_column_name(column_name)} IS NULL")
+          end
+
+          sql_type = column.sql_type.to_s == 'DATETIME' ? 'DATE' : column.sql_type # monkey_patched
+
+          change_column table_name, column_name, sql_type, :null => null
+        end
+      end
     end
   end
 
