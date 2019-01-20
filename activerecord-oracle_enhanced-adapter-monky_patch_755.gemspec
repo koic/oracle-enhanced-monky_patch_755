@@ -27,10 +27,10 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.0.0'
   s.license = 'MIT'
 
-  s.add_dependency 'activerecord', '>= 4.2.1'
+  s.add_dependency 'activerecord', '>= 4.2.1', '< 5.2'
   s.add_dependency 'activerecord-oracle_enhanced-adapter', '>= 1.6.0'
   s.add_dependency 'ruby-oci8'
-  s.add_development_dependency 'railties', '>= 4.2.1'
+  s.add_development_dependency 'railties', '>= 4.2.1', '< 5.2'
   s.add_development_dependency 'rspec', '>= 3.0.0'
 
   s.post_install_message = <<-END
@@ -40,6 +40,8 @@ The best way is to use oracle-enhanced 1.7.3 or later.
 
 Upgrade Rails 4.2 or older version to Rails 5.
 See https://github.com/rsim/oracle-enhanced#upgrade-rails-42-or-older-version-to-rails-5
+
+Also this gem doesn't support Rails 5.2 or higher.
 
 Thank you.
 END

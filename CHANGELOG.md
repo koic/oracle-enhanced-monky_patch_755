@@ -1,3 +1,7 @@
+## 1.0.0 (2019-01-20)
+
+* The development of this gem has ended. Rails 5.2 or higher are not supported.
+
 ## 0.3.0 (2017-05-15)
 
 * Support AR 5.1.0
