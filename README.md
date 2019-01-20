@@ -4,6 +4,8 @@ A monkey patch for oracle-enhanced ISSUE [#755](https://github.com/rsim/oracle-e
 
 **ISSUE #755 has been resolved on activerecord-oracle_enhanced-adapter 1.7.3 or higher.**
 
+The development of this gem has ended. Rails 5.2 or higher are not supported.
+
 ## Installation
 
 Add these lines to your application's Gemfile:
